@@ -3,6 +3,7 @@ from . import db
 from datetime import datetime
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import UserMixin,current_user
+
 from . import login_manager
 @login_manager.user_loader
 def load_user(user_id):
@@ -14,7 +15,7 @@ class User(UserMixin,db.Model):
     email = db.Column(db.String(255),unique = True,index = True)
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
-    password_secure = db.Column(db.String(255))
+    password_hash = db.Column(db.String(255))
     reviews = db.relationship('Comments',backref = 'user',lazy = "dynamic")
     @property
     def password(self):
