@@ -4,7 +4,10 @@ from flask import render_template,redirect,url_for
 from ..models import User
 from .forms import RegistrationForm
 from .. import db
-
+from flask import render_template,redirect,url_for, flash,request
+from flask_login import login_user
+from ..models import User
+from .forms import LoginForm,RegistrationForm
 @auth.route('/login')
 def login():
     return render_template('auth/login.html')
