@@ -3,6 +3,9 @@ class Config:
     '''
     General configuration parent class
     '''
+       # simple mde  configurations
+    SIMPLEMDE_JS_IIFE = True
+    SIMPLEMDE_USE_CDN = True
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:ruth@localhost/pitches'
     UPLOADED_PHOTOS_DEST ='app/static/photos'
 
@@ -13,12 +16,16 @@ class ProdConfig(Config):
         Config: The parent configuration class with General configuration settings
     '''
     pass
+
+class TestConfig(Config):
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:ruth@localhost/pitches'
 class DevConfig(Config):
     '''
     Development  configuration child class
     Args:
         Config: The parent configuration class with General configuration settings
     '''
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:ruth@localhost/pitches'
     DEBUG = True
 config_options = {
 'development':DevConfig,
