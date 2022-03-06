@@ -1,7 +1,7 @@
 from flask import render_template,request,redirect,url_for,abort
 from ..models import Reviews, User
 from .. import db,photos
-
+import markdown2  
 from .forms import ReviewForm,UpdateProfile
 # from app import auth
 from . import main
@@ -50,3 +50,12 @@ def update_profile(uname):
 def logout():
     logout_user()
     return redirect(url_for("main.index"))
+
+
+# @main.route('/review/<int:id>')
+# def single_review(id):
+#     review=Review.query.get(id)
+#     if review is None:
+#         abort(404)
+#     format_review = markdown2.markdown(review.movie_review,extras=["code-friendly", "fenced-code-blocks"])
+#     return render_template('review.html',review = review,format_review=format_review)
