@@ -4,6 +4,8 @@ class Config:
     General configuration parent class
     '''
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:ruth@localhost/pitches'
+    UPLOADED_PHOTOS_DEST ='app/static/photos'
+
 class ProdConfig(Config):
     '''
     Production  configuration child class
