@@ -1,1 +1,75 @@
 {% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+{% block styles%}
+{{ super() }}
+
+<link rel="stylesheet" href="../static/css/index.css"> 
+
+  
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid" >
+  
+  <div class ="pitch">
+  <h3 style="color: green;text-align: center;">Pitch App</h1>
+  </div>
+
+<div class="container">
+   
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card ">
+                <h2>Interview</h2>
+                <p style="font-family: 'Open Sans',font_size 36px;">
+                    Interviews tips to help people<br>
+                     use them to secure jobs
+                </p>
+                    <button type="button" class="btn btn-secondary" style="margin-bottom: 4%;"><a href="{{url_for('main.new_pitch')}}">Add a New Pitch</a></button><br>
+                    <button type="button" class="btn btn-secondary"><a href="{{url_for('main.categories',category = 'interview')}}">View pitch</a></button>
+            </div>
+        </div>
+        <div class="col-md-4">
+
+            <div class="card ">
+                <h2>Advert</h2>
+                <p style="font-family: 'Open Sans',font_size 28px;">
+                    Gives overview of how to go by<br>
+                     in making our adverts
+                </p> 
+
+                <button type="button" class="btn btn-secondary" style="margin-bottom: 4%;"><a href="{{url_for('main.new_pitch')}}">Add a New Pitch</a></button><br>
+
+                <button type="button" class="btn btn-secondary"><a href="{{url_for('main.categories',category = 'adverts')}}">View pitch</a></button>
+            </div>
+        </div>
+        <div class="col-md-4">
+
+            <div class="card ">
+                <h2>products</h2>
+                <p style="font-family: 'Open Sans',font_size 28px;">
+                    Tells us more about<br>
+                     all products available
+                </p> 
+
+                <button type="button" class="btn btn-secondary" style="margin-bottom: 4%;"><a href="{{url_for('main.new_pitch')}}">Add a New Pitch</a></button><br>
+
+                <button type="button" class="btn btn-secondary"><a href="{{url_for('main.categories',category = 'products')}}">View pitch</a></button>
+            </div>
+        </div>
+        </div>
+</div>
+
+{% endblock%}
+
+
+
+      
+
+                 
+                   
+                
+         
+      
+          
+ 

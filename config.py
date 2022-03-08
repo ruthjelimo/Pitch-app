@@ -8,6 +8,15 @@ class Config:
     SIMPLEMDE_USE_CDN = True
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:ruth@localhost/pitches'
     UPLOADED_PHOTOS_DEST ='app/static/photos'
+    
+     #  email configurations
+    MAIL_SERVER = 'smtp.googlemail.com'
+    MAIL_PORT = 587
+    MAIL_USE_TLS = True
+    MAIL_USERNAME ="ruthjmimo@gmail.com"
+    MAIL_PASSWORD ="34292090"
+    SECRET_KEY = os.environ.get("SECRET_KEY")
+ 
 
 class ProdConfig(Config):
     '''
@@ -32,9 +41,3 @@ config_options = {
 'production':ProdConfig
 }
 
-# #  email configurations
-#     MAIL_SERVER = 'smtp.googlemail.com'
-#     MAIL_PORT = 587
-#     MAIL_USE_TLS = True
-#     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
-#     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
