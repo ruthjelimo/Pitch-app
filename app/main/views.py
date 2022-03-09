@@ -23,8 +23,8 @@ def new_pitch():
     if form.validate_on_submit():
         title = form.title.data
         category = form.category.data
-        newPitch = form.pitch_info.data
-        new_pitch = Pitches(pitch_title=title,pitch_category=category,pitch_itself=newPitch,user=current_user)
+        # newPitch = form.pitch_info.data
+        new_pitch = Pitches(pitch_title=title,pitch_category=category,user=current_user)
         new_pitch.save_pitch()
         return redirect(url_for('.index'))
     title = 'Add pitch'
@@ -40,56 +40,17 @@ def categories(category):
  
     return render_template('categories.html',title=title,pitches=pitches)
 
-# @main.route('/comment/<int:id>', methods=['POST', 'GET'])
-# @login_required
-# def post_comment(id):
-#     pitche = Pitches.getPitchId(id)
-#     comments = Comments.get_comments(id)
-#     if request.args.get("like"):
-#         pitch = Pitches.query.filter_by(user_id=current_user.id)
-#         pitch.likes += 1
-#         print(pitch.likes)
-#         db.session.add(pitch.likes)
-#         db.session.commit()
-#         return str(pitch.likes)
-#     elif request.args.get("dislike"):
-#         pitche.dislikes += 1
-#         db.session.add()
-#         db.session.commit()
-#         return redirect(".comment")
-#     form = CommentForm()
-#     if form.validate_on_submit():
-#         comment = form.comment.data
-#         new_comment = Comments(comment_itself=comment,
-#                                user_id=current_user.id,
-#                                pitches_id=pitche.id)
-#         new_comment.save_comment()
-#         return redirect(url_for('main.post_comment', id=pitche.id))
-#     return render_template('comment.html',
-#                            commentform=form,
-#                            comments=comments,
-#                            pitch=pitche)
-# @main.route('/pitch/upvote/<int:id>&<int:vote>')
-# @login_required
-# def vote(id, vote):
-#     counter = 0
-#     pitchethrill = Pitches.getPitchId(id)
-#     # vote = .get_vote(id)
-#     counter += 1
-#     print(counter)
-#     new_vote = Pitches(likes=counter)
-#     new_vote.save_vote()
-#     return str(new_vote)
+
 @main.route('/comments/<id>')
 @login_required
 def comment(id):
     '''
     function to return the comments
     '''
-    comm =Comments.get_comment(id)
-    print(comm)
+    comments =Comments.get_comments(id)
+   
     title = 'comments'
-    return render_template('comments.html',comment = comm,title = title)
+    return render_template('comments.html',comments = comments,title = title)
 
 @main.route('/new_comment/<int:pitches_id>', methods = ['GET', 'POST'])
 @login_required
@@ -100,7 +61,7 @@ def new_comment(pitches_id):
     if form.validate_on_submit():
         comment = form.comment.data
 
-        new_comment = Comments(comment=comment,user_id=current_user.id, pitches_id=pitches_id)
+        new_comment = Comments(pitch_comment=comment,user_id=current_user.id, pitches_id=pitches_id)
 
         new_comment.save_comment()
 
