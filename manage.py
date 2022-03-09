@@ -1,6 +1,6 @@
-from app import create_app,db
+from project import create_app,db
 from flask_script import Manager,Server
-from app.models import Comments, Pitches, User
+from project.models import Comments, Pitches, User
 from  flask_migrate import Migrate, MigrateCommand
 
 
