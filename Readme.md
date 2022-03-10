@@ -1,6 +1,6 @@
 ### Application
 
-News_Update
+Pitches_App
 
 ## Author
  
@@ -8,7 +8,7 @@ News_Update
 
  ### Description
 
- The project is a pitch site where one can add a itch and also can comment 
+ The project is a pitch site where one can add a pitch and also can comment 
 
  ## Project Set Up Instructions
  CTRL+ALT+T to open the terminal 
